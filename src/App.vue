@@ -11,9 +11,9 @@ export default {
 
     data() {
       return {
-        cdb: 0,
-        lci: 0,
-        taxIncome: 0
+        cdb: undefined,
+        lci: undefined,
+        taxIncome: undefined
       }
     },
 
