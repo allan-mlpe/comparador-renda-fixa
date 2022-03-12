@@ -19,6 +19,6 @@ export default {
 </script>
 
 <template>
-  <input type="range" min="0" v-model="value" :max="taxes.length - 1" step="1" @change="$emit('changeValue', taxes[value].tax)"/>
+  <input type="range" class="form-range" min="0" v-model="value" :max="taxes.length - 1" step="1" @change="$emit('changeValue', taxes[value].tax)"/>
     {{ taxes[value].label }}
 </template>

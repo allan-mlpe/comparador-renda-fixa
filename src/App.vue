@@ -8,7 +8,7 @@ export default {
     InvestmentInput,
     TaxIncomeRange
     },
-    
+
     data() {
       return {
         cdb: 0,
@@ -36,16 +36,25 @@ export default {
 
 <template>
   <header>
-    <div class="wrapper">
-    
-    </div>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">Comparador Renda Fixa</a>
+    </nav>
   </header>
 
-  <main>
-    <InvestmentInput label="LCI" :value=lci @change-value="convertLciToCdb"/>
-    <InvestmentInput label="CDB" :value=cdb @change-value="convertCdbToLci"/>
+  <main class="container-sm">
+    <div class="row">
+      <div class="col">
+        <InvestmentInput label="LCI" :value=lci @change-value="convertLciToCdb"/>
+      </div>
 
-    <TaxIncomeRange @change-value="recalculate"/>
+      <div class="col">
+        <InvestmentInput label="CDB" :value=cdb @change-value="convertCdbToLci"/>    
+      </div>
+    </div>
+    <div class="row">
+      <TaxIncomeRange @change-value="recalculate"/>
+      </div>
+
   </main>
 </template>
 

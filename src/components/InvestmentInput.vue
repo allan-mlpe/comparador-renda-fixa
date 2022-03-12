@@ -6,5 +6,8 @@ export default {
 </script>
 
 <template>
-  {{ label }} <input type="number" v-model="value" @change="$emit('changeValue', value)"/>
+<div class="form-floating mb-3">
+  <input type="number" class="form-control" v-model="value" @change="$emit('changeValue', value)"/>
+  <label for="floatingInput">{{ label }} (% do CDI)</label>
+  </div>
 </template>
