@@ -54,7 +54,6 @@ export default {
     <div class="row">
       <TaxIncomeRange @change-value="recalculate"/>
       </div>
-
   </main>
 </template>
 
