@@ -19,9 +19,9 @@ export default {
 </script>
 
 <template>
-<div class="form-floating mb-3">
-    Prazo para resgate:
-  <input type="range" class="form-range" min="0" v-model="value" :max="taxes.length - 1" step="1" @change="$emit('changeValue', taxes[value].tax)"/>
+<div>
+    <label for="taxes" class="form-label">Prazo para resgate:</label>
+  <input id="taxes" type="range" class="form-range" min="0" v-model="value" :max="taxes.length - 1" step="1" @change="$emit('changeValue', taxes[value].tax)"/>
     {{ taxes[value].label }}
     </div>
 </template>
