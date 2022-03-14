@@ -1,37 +1,37 @@
 <script>
 import InvestmentInput from "./components/InvestmentInput.vue";
 import TaxIncomeRange from "./components/TaxIncomeRange.vue";
-import { lciToCdb, cdbToLci } from "./logic/converters.ts"
+import { lciToCdb, cdbToLci } from "./logic/converters.ts";
 
 export default {
   components: {
     InvestmentInput,
-    TaxIncomeRange
-    },
+    TaxIncomeRange,
+  },
 
-    data() {
-      return {
-        cdb: undefined,
-        lci: undefined,
-        taxIncome: undefined
-      }
-    },
+  data() {
+    return {
+      cdb: undefined,
+      lci: undefined,
+      taxIncome: undefined,
+    };
+  },
 
-    methods: {
-      convertCdbToLci(val) {
-        this.cdb = val
-        this.lci = cdbToLci(val, this.taxIncome)
-      },
-      convertLciToCdb(val) {
-        this.lci = val
-        this.cdb = lciToCdb(val, this.taxIncome)
-      },
-      recalculate(tax) {
-        this.taxIncome = tax
-        this.convertLciToCdb(this.lci)
-      }
-    }
-}
+  methods: {
+    convertCdbToLci(val) {
+      this.cdb = val;
+      this.lci = cdbToLci(val, this.taxIncome);
+    },
+    convertLciToCdb(val) {
+      this.lci = val;
+      this.cdb = lciToCdb(val, this.taxIncome);
+    },
+    recalculate(tax) {
+      this.taxIncome = tax;
+      this.convertLciToCdb(this.lci);
+    },
+  },
+};
 </script>
 
 <template>
@@ -44,19 +44,17 @@ export default {
   <main class="container-sm">
     <div class="row">
       <div class="col">
-        <InvestmentInput label="LCI" :value=lci @change-value="convertLciToCdb"/>
+        <InvestmentInput label="LCI" :value="lci" @change-value="convertLciToCdb" />
       </div>
 
       <div class="col">
-        <InvestmentInput label="CDB" :value=cdb @change-value="convertCdbToLci"/>    
+        <InvestmentInput label="CDB" :value="cdb" @change-value="convertCdbToLci" />
       </div>
     </div>
     <div class="row">
-      <TaxIncomeRange @change-value="recalculate"/>
-      </div>
+      <TaxIncomeRange @change-value="recalculate" />
+    </div>
   </main>
 </template>
 
-<style>
-
-</style>
+<style></style>
