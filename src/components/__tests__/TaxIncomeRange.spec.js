@@ -12,11 +12,22 @@ describe("TaxIncomeRange", () => {
 
     it("renders properly", () => {
         const label = wrapper.find('label')
+        const span = wrapper.find('span')
         const input = wrapper.find('input')
 
-
         expect(label.text()).toBe("Prazo para resgate:")
+        expect(span.text()).toBe("Até 180 dias")
         expect(input.element.value).toBe('0')
+    })
+
+    it("updates the span when the value changes", async () => {
+        const input = wrapper.find('input')
+        const span = wrapper.find('span') 
+
+        input.setValue(2)
+        await wrapper.vm.$nextTick()
+
+        expect(span.text()).toBe("De 361 a 720 dias")
     })
 
     it("emits the initial value when the component is created", () => {
@@ -31,7 +42,6 @@ describe("TaxIncomeRange", () => {
         const newValue = 3
 
         input.setValue(newValue)
-
         const inputEvent = wrapper.emitted('changeValue')
 
         expect(input.element.value).toBe('3')

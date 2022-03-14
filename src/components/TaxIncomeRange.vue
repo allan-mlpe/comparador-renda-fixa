@@ -31,6 +31,6 @@ export default {
       step="1"
       @change="$emit('changeValue', taxes[value].tax)"
     />
-    {{ taxes[value].label }}
+    <span>{{ taxes[value].label }}</span>
   </div>
 </template>
