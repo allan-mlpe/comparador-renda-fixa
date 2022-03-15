@@ -1,37 +1,6 @@
-<script>
-import InvestmentInput from "./components/InvestmentInput.vue";
-import TaxIncomeRange from "./components/TaxIncomeRange.vue";
-import { lciToCdb, cdbToLci } from "./logic/converters.ts";
-
-export default {
-  components: {
-    InvestmentInput,
-    TaxIncomeRange,
-  },
-
-  data() {
-    return {
-      cdb: undefined,
-      lci: undefined,
-      taxIncome: undefined,
-    };
-  },
-
-  methods: {
-    convertCdbToLci(val) {
-      this.cdb = val;
-      this.lci = cdbToLci(val, this.taxIncome);
-    },
-    convertLciToCdb(val) {
-      this.lci = val;
-      this.cdb = lciToCdb(val, this.taxIncome);
-    },
-    recalculate(tax) {
-      this.taxIncome = tax;
-      this.convertLciToCdb(this.lci);
-    },
-  },
-};
+<script setup>
+import PrefixedInvestment from "./components/PrefixedInvestment.vue";
+import SimpleCol from "./components/SimpleCol.vue";
 </script>
 
 <template>
@@ -41,20 +10,77 @@ export default {
     </nav>
   </header>
 
-  <main class="container-sm">
-    <div class="row">
-      <div class="col">
-        <InvestmentInput label="LCI" :value="lci" @change-value="convertLciToCdb" />
-      </div>
-
-      <div class="col">
-        <InvestmentInput label="CDB" :value="cdb" @change-value="convertCdbToLci" />
-      </div>
+  <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        Prefixado
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        Pós-fixado
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="contact-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#contact"
+        type="button"
+        role="tab"
+        aria-controls="contact"
+        aria-selected="false"
+      >
+        IPCA
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div
+      class="tab-pane fade show active"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+    >
+      <SimpleCol>
+        <PrefixedInvestment />
+      </SimpleCol>
     </div>
-    <div class="row">
-      <TaxIncomeRange @change-value="recalculate" />
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <SimpleCol>
+        Em breve...
+      </SimpleCol>
     </div>
-  </main>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <SimpleCol>
+        Em breve...
+      </SimpleCol>
+    </div>
+  </div>
 </template>
 
-<style></style>
+<style>
+div.tab-pane {
+  margin-top: 10pt;
+}
+
+</style>
