@@ -19,6 +19,6 @@ export default {
       v-model="value"
       @input="$emit('changeValue', value)"
     />
-    <label :for="id">{{ label }} (% do CDI)</label>
+    <label :for="id">{{ label }}</label>
   </div>
 </template>

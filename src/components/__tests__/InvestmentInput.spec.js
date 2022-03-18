@@ -15,7 +15,7 @@ describe("InvestmentInput", () => {
     const input = wrapper.find('input')
 
 
-    expect(label.text()).toContain("input label")
+    expect(label.text()).toBe("input label")
     expect(input.element.value).toBe('10')
   })
 
