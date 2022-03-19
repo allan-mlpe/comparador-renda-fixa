@@ -27,4 +27,6 @@ jobs:
     - name: Unit tests
       run: npm run test:unit
     - name: E2E tests
-      run: npm run test:e2e:ci
+      run: |
+        npm run preview &
+        npx cypress run
