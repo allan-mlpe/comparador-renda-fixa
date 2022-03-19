@@ -27,5 +27,8 @@ jobs:
     - name: Unit tests
       run: npm run test:unit
     - name: E2E tests
-      run: |
-        npm run preview && npx cypress run
+      uses: cypress-io/github-action@v2
+      with:
+        start: npm run preview
+        command: npm run test:e2e:ci
+        cache-key: node-modules-${{ hashFiles('package-lock.json') }}
