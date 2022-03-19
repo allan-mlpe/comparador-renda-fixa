@@ -31,6 +31,6 @@ jobs:
       with:
         build:
         start: npm run preview
-        wait-on: http://localhost:5050
-        config: baseUrl=http://localhost:5050
+        wait-on: http://127.0.0.1:5050
+        config: baseUrl=http://127.0.0.1:5050
         command: npx cypress run
