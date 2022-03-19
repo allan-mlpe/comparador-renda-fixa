@@ -29,8 +29,4 @@ jobs:
     - name: E2E tests
       uses: cypress-io/github-action@v2
       with:
-        build:
-        start: npm run preview
-        wait-on: http://127.0.0.1:5050
-        config: baseUrl=http://127.0.0.1:5050
-        command: npx cypress run
+        command: npx start-server-and-test preview http://127.0.0.1:5050/ 'cypress run'
