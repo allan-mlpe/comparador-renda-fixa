@@ -31,4 +31,4 @@ jobs:
       with:
         build:
         start: npm run preview
-        command: cypress run
+        command: npx cypress run
