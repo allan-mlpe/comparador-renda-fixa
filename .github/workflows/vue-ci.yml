@@ -29,6 +29,5 @@ jobs:
     - name: E2E tests
       uses: cypress-io/github-action@v2
       with:
-        start: npm run preview
-        command: npx cypress run
+        start: start-server-and-test preview http://127.0.0.1:5050/
         cache-key: node-modules-${{ hashFiles('package-lock.json') }}
