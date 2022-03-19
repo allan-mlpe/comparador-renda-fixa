@@ -27,6 +27,6 @@ jobs:
     - name: Unit tests
       run: npm run test:unit
     - name: E2E tests
-      uses: cypress-io/github-action@v2
+      uses: cypress-io/github-action@v2.8.2
       with:
-        command: npx start-server-and-test preview http://127.0.0.1:5050/ 'cypress run'
+        command: npm run test:e2e:ci
