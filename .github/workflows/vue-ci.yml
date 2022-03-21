@@ -8,7 +8,6 @@ on:
 
 jobs:
   Tests:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -33,4 +32,13 @@ jobs:
         config: baseUrl=http://localhost:3000
         wait-on: 'http://localhost:3000'
         wait-on-timeout: 60
-        
+    - name: Build
+      if: github.event_name == 'push'
+      run: npm run build
+    - name: Upload artifact
+      if: github.event_name == 'push'
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        path: dist
+        retention-days: 1
