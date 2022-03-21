@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI/CD Pipeline
 
 on:
   push:
@@ -44,6 +44,7 @@ jobs:
         retention-days: 1
    
   Deploy:
+    needs: Tests
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
@@ -51,6 +52,9 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: dist
+
+    - name: List files
+      run: ls -lha
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
