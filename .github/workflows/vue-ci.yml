@@ -43,7 +43,7 @@ jobs:
         path: dist
         retention-days: 1
    
-   Deploy:
+  Deploy:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
