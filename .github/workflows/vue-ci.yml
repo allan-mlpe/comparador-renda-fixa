@@ -34,7 +34,7 @@ jobs:
         wait-on-timeout: 60
     - name: Build
       if: github.event_name == 'push'
-      run: npm run build
+      run: npm run build -- --base=/comparador-renda-fixa/s
     - name: Upload artifact
       if: github.event_name == 'push'
       uses: actions/upload-artifact@v3
