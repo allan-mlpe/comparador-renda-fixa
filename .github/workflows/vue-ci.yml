@@ -44,6 +44,9 @@ jobs:
         retention-days: 1
   
   Testssss:
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
     - name: Run test
