@@ -14,12 +14,12 @@ import SimpleCol from "./components/SimpleCol.vue";
     <li class="nav-item" role="presentation">
       <button
         class="nav-link active"
-        id="home-tab"
+        id="prefixed-tab"
         data-bs-toggle="tab"
-        data-bs-target="#home"
+        data-bs-target="#prefixed"
         type="button"
         role="tab"
-        aria-controls="home"
+        aria-controls="prefixed"
         aria-selected="true"
       >
         Prefixado
@@ -57,9 +57,9 @@ import SimpleCol from "./components/SimpleCol.vue";
   <div class="tab-content" id="myTabContent">
     <div
       class="tab-pane fade show active"
-      id="home"
+      id="prefixed"
       role="tabpanel"
-      aria-labelledby="home-tab"
+      aria-labelledby="prefixed-tab"
     >
       <SimpleCol>
         <PrefixedInvestment />
