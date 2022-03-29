@@ -1,6 +1,7 @@
 # comparador-renda-fixa
 
-[![CI](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/vue-ci.yml/badge.svg)](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/vue-ci.yml)
+[![CI Pipeline](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/tests.yml/badge.svg)](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/tests.yml)
+[![CD Pipeline](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/deploy.yml/badge.svg)](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/deploy.yml)
 
 This template should help get you started developing with Vue 3 in Vite.
 
