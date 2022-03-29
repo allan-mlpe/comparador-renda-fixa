@@ -1,0 +1,35 @@
+name: CD Pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    branches: [main]
+    types: 
+      - completed
+
+jobs:
+  Deploy:
+      runs-on: ubuntu-latest
+
+      if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+      steps:
+      - uses: actions/checkout@v2
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build -- --base=/comparador-renda-fixa/
+
+      - name: Deploy to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
