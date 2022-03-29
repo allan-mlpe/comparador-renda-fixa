@@ -21,20 +21,19 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        
     - name: Install
       run: npm install
+
+    - name: Build
+      run: npm run build -- --base=/comparador-renda-fixa/
+    
     - name: Unit tests
       run: npm run test:unit
+    
     - name: E2E tests
-      uses: cypress-io/github-action@v2
-      with:
-        start: npm run dev
-        config: baseUrl=http://localhost:3000
-        wait-on: 'http://localhost:3000'
-        wait-on-timeout: 60
-    - name: Build
-      if: github.event_name == 'push'
-      run: npm run build -- --base=/comparador-renda-fixa/
+      run: npm run test:e2e:ci
+    
     - name: Upload artifact
       if: github.event_name == 'push'
       uses: actions/upload-artifact@v3
@@ -45,7 +44,9 @@ jobs:
    
   Deploy:
     needs: Tests
+
     runs-on: ubuntu-latest
+
     if: github.event_name == 'push'
     steps:
     - name: Download dist folder
