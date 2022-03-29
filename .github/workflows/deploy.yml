@@ -1,4 +1,4 @@
-name: Deploy to Github Pages
+name: CD Pipeline
 
 on:
   workflow_run:
@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: npm run build -- --base=/comparador-renda-fixa/
 
-      - name: Deploy
+      - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
