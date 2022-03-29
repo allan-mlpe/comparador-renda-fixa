@@ -26,14 +26,10 @@ jobs:
       run: npm install
 
     - name: Build
-      run: npm run build -- --base=/comparador-renda-fixa/
+      run: npm run build
     
     - name: Unit tests
       run: npm run test:unit
-    
-
-    - name: List
-      run: ls -lha
 
     - name: E2E tests
       uses: cypress-io/github-action@v2
@@ -42,14 +38,6 @@ jobs:
         config: baseUrl=http://localhost:5050
         wait-on: 'http://localhost:5050'
         wait-on-timeout: 60
-    
-    - name: Upload artifact
-      if: github.event_name == 'push'
-      uses: actions/upload-artifact@v3
-      with:
-        name: dist
-        path: dist
-        retention-days: 1
    
   Deploy:
     needs: Tests
@@ -58,13 +46,22 @@ jobs:
 
     if: github.event_name == 'push'
     steps:
-    - name: Download dist folder
-      uses: actions/download-artifact@v3
+    - uses: actions/checkout@v2
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
       with:
-        name: dist
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install
+      run: npm install
+
+    - name: Build
+      run: npm run build -- --base=/comparador-renda-fixa/
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: .
+        publish_dir: dist
