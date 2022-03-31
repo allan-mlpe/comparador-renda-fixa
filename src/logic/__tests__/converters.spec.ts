@@ -1,6 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { lciToCdb, cdbToLci } from "../converters";
-
+import { lciToCdb, cdbToLci, postFixedCdbToPrefixed } from "../converters";
 
 const cdbToLciData = [
     { input: { cdbFee: 110, incomeTax: 0.175 }, result: 90.75 },
@@ -18,22 +17,35 @@ const lciToCdbData = [
     { input: { lciFee: 140, incomeTax: 1 },     result: 0 }
 ]
 
-describe("Converts a LCI to a CDB properly", () => {
+const postFixedCdbToPrefixedData = [
+    { input: { postFixedCdbFee: 100, interestRate: 0.12 }, result: 12 },
+    { input: { postFixedCdbFee: 0, interestRate: 0.12 }, result: 0 },
+    { input: { postFixedCdbFee: 119, interestRate: 0.11 }, result: 13.09 },
+    { input: { postFixedCdbFee: 300, interestRate: 0 }, result: 0 }
+]
+
+describe("Converters", () => {
     it("Converts a LCI to CDB properly", () => {
         cdbToLciData.forEach(({ input, result }) => {
             const lci = cdbToLci(input.cdbFee, input.incomeTax);
 
             expect(lci).toBe(result);    
         })
-      });
-})
+      })
 
-describe("Converts a CDB to a LCI properly", () => {
-    it("Converts a CDB to LCI properly", () => {
+      it("Converts a CDB to LCI properly", () => {
         lciToCdbData.forEach(({ input, result }) => {
             const lci = lciToCdb(input.lciFee, input.incomeTax);
 
             expect(lci).toBe(result);    
         })
-      });
+      })
+
+      it("Converts a CDB post fixed to a CDB prefixed properly", () => {
+        postFixedCdbToPrefixedData.forEach(({ input, result }) => {
+            const prefixedCdb = postFixedCdbToPrefixed(input.postFixedCdbFee, input.interestRate);
+
+            expect(prefixedCdb).toBe(result);    
+        })
+      })
 })
