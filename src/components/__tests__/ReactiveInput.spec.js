@@ -1,13 +1,13 @@
 import { describe, it, expect, beforeEach } from "vitest";
 
 import { mount } from '@vue/test-utils'
-import InvestmentInput from '../InvestmentInput.vue'
+import ReactiveInput from '../ReactiveInput.vue'
 
-describe("InvestmentInput", () => {
+describe("ReactiveInput", () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(InvestmentInput, { props: { label: "input label", value: 10 } })
+    wrapper = mount(ReactiveInput, { props: { label: "input label", value: 10 } })
   })
 
   it("renders properly", () => {

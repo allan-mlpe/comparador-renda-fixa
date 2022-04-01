@@ -1,11 +1,11 @@
 <script>
-import InvestmentInput from "./InvestmentInput.vue";
+import ReactiveInput from "./ReactiveInput.vue";
 import TaxIncomeRange from "./TaxIncomeRange.vue";
 import { lciToCdb, cdbToLci } from "../logic/converters.ts";
 
 export default {
   components: {
-    InvestmentInput,
+    ReactiveInput,
     TaxIncomeRange,
   },
 
@@ -37,11 +37,11 @@ export default {
 <template>
   <div class="row">
     <div class="col">
-      <InvestmentInput label="LCI" :value="lci" @change-value="convertLciToCdb" />
+      <ReactiveInput label="LCI/LCA" :value="lci" @change-value="convertLciToCdb" />
     </div>
 
     <div class="col">
-      <InvestmentInput label="CDB" :value="cdb" @change-value="convertCdbToLci" />
+      <ReactiveInput label="CDB" :value="cdb" @change-value="convertCdbToLci" />
     </div>
   </div>
   <div class="row">
