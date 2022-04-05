@@ -1,6 +1,7 @@
 <script setup>
 import PrefixedInvestment from "./components/PrefixedInvestment.vue";
 import SimpleCol from "./components/SimpleCol.vue";
+import PostFixedInvestment from "./components/PostFixedInvestment.vue";
 </script>
 
 <template>
@@ -28,12 +29,12 @@ import SimpleCol from "./components/SimpleCol.vue";
     <li class="nav-item" role="presentation">
       <button
         class="nav-link"
-        id="profile-tab"
+        id="postfixed-tab"
         data-bs-toggle="tab"
-        data-bs-target="#profile"
+        data-bs-target="#postfixed"
         type="button"
         role="tab"
-        aria-controls="profile"
+        aria-controls="postfixed"
         aria-selected="false"
       >
         Pós-fixado
@@ -65,15 +66,19 @@ import SimpleCol from "./components/SimpleCol.vue";
         <PrefixedInvestment />
       </SimpleCol>
     </div>
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+    <div 
+      class="tab-pane fade" 
+      id="postfixed" 
+      role="tabpanel" 
+      aria-labelledby="postfixed-tab"
+    >
       <SimpleCol>
-        Em breve...
+        <PostFixedInvestment />
       </SimpleCol>
     </div>
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      <SimpleCol>
-        Em breve...
-      </SimpleCol>
+      <SimpleCol> Em breve... </SimpleCol>
     </div>
   </div>
 </template>
@@ -82,5 +87,4 @@ import SimpleCol from "./components/SimpleCol.vue";
 div.tab-pane {
   margin-top: 10pt;
 }
-
 </style>
