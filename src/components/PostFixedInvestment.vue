@@ -1,7 +1,7 @@
 <script>
 import ReactiveInput from "./ReactiveInput.vue";
 import TaxIncomeRange from "./TaxIncomeRange.vue";
-import { postFixedCdbToPrefixed } from "../logic/converters.ts";
+import { postFixedCdbToPrefixed, postFixedLciToPrefixed } from "../logic/converters.ts";
 
 export default {
   components: {
@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       fee: undefined,
+      incomeTax: undefined,
       expectedCdi: undefined,
     };
   },
@@ -20,6 +21,9 @@ export default {
     prefixedCdb() {
       return postFixedCdbToPrefixed(this.fee, this.expectedCdi / 100) || 0;
     },
+    prefixedLci() {
+      return postFixedLciToPrefixed(this.fee, this.incomeTax) || 0
+    }
   },
 };
 </script>
@@ -51,7 +55,7 @@ export default {
     </div>
   </div>
   <div class="row">
-    <TaxIncomeRange @change-value="() => {}" />
+    <TaxIncomeRange @change-value="val => { this.incomeTax = val}" />
   </div>
 
   <div class="row">
@@ -69,7 +73,7 @@ export default {
         <div class="card-body">
           <h5 class="card-title">LCI/LCA</h5>
           <h6 class="card-subtitle mb-2 text-muted">Prefixado</h6>
-          <p class="card-text">Em breve...</p>
+          <p class="card-text">{{ prefixedLci}}%</p>
         </div>
       </div>
     </div>
