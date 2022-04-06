@@ -19,10 +19,10 @@ export default {
 
   computed: {
     prefixedCdb() {
-      return postFixedCdbToPrefixed(this.fee, this.expectedCdi / 100) || 0;
+      return (postFixedCdbToPrefixed(this.fee, this.expectedCdi / 100) || 0).toFixed(2);
     },
     prefixedLci() {
-      return postFixedLciToPrefixed(this.fee, this.incomeTax) || 0
+      return (postFixedLciToPrefixed(this.fee, this.incomeTax) || 0).toFixed(2)
     }
   },
 };
