@@ -25,7 +25,7 @@ const postFixedCdbToPrefixedData = [
 ]
 
 describe("Converters", () => {
-    it("Converts a LCI to CDB properly", () => {
+    it("Converts a CDB to LCI/LCA properly", () => {
         cdbToLciData.forEach(({ input, result }) => {
             const lci = cdbToLci(input.cdbFee, input.incomeTax);
 
@@ -33,11 +33,11 @@ describe("Converters", () => {
         })
       })
 
-      it("Converts a CDB to LCI properly", () => {
+      it("Converts a LCI/LCA to CDB properly", () => {
         lciToCdbData.forEach(({ input, result }) => {
-            const lci = lciToCdb(input.lciFee, input.incomeTax);
+            const cdb = lciToCdb(input.lciFee, input.incomeTax);
 
-            expect(lci).toBe(result);    
+            expect(cdb).toBe(result);    
         })
       })
 
