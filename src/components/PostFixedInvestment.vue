@@ -8,20 +8,70 @@ export default {
     ReactiveInput,
     TaxIncomeRange,
   },
+
+  data() {
+    return {
+      fee: undefined,
+      expectedCdi: undefined,
+    };
+  },
+
+  computed: {
+    prefixedCdb() {
+      return postFixedCdbToPrefixed(this.fee, this.expectedCdi / 100) || 0;
+    },
+  },
 };
 </script>
 
 <template>
   <div class="row">
     <div class="col">
-      <ReactiveInput label="% do CDI" :value="0" @change-value="() => {}" />
+      <ReactiveInput
+        label="% do CDI"
+        :value="fee"
+        @change-value="
+          (val) => {
+            this.fee = val;
+          }
+        "
+      />
     </div>
 
     <div class="col">
-      <ReactiveInput label="CDI esperado" :value="0" @change-value="() => {}" />
+      <ReactiveInput
+        label="CDI esperado"
+        :value="expectedCdi"
+        @change-value="
+          (val) => {
+            this.expectedCdi = val;
+          }
+        "
+      />
     </div>
   </div>
   <div class="row">
     <TaxIncomeRange @change-value="() => {}" />
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">CDB</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Prefixado</h6>
+          <p class="card-text">{{ prefixedCdb }}%</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">LCI/LCA</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Prefixado</h6>
+          <p class="card-text">Em breve...</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
