@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { lciToCdb, cdbToLci, postFixedCdbToPrefixed } from "../converters";
+import { lciToCdb, cdbToLci, postFixedCdbToPrefixed, postFixedLciToPrefixed } from "../converters";
 
 const cdbToLciData = [
     { input: { cdbFee: 110, incomeTax: 0.175 }, result: 90.75 },
@@ -24,6 +24,14 @@ const postFixedCdbToPrefixedData = [
     { input: { postFixedCdbFee: 300, interestRate: 0 }, result: 0 }
 ]
 
+const postFixedLciToPrefixedData = [
+    { input: { postFixedLciFee: 109, incomeTax: 0.175 }, result: 89.925 },
+    { input: { postFixedLciFee: 0,   incomeTax: 0.175 }, result: 0 },
+    { input: { postFixedLciFee: 115, incomeTax: 0.225 }, result: 89.125 },
+    { input: { postFixedLciFee: 100, incomeTax: 0.15 },  result: 85 },
+    { input: { postFixedLciFee: 122, incomeTax: 0 },     result: 122 }
+]
+
 describe("Converters", () => {
     it("Converts a CDB to LCI/LCA properly", () => {
         cdbToLciData.forEach(({ input, result }) => {
@@ -46,6 +54,14 @@ describe("Converters", () => {
             const prefixedCdb = postFixedCdbToPrefixed(input.postFixedCdbFee, input.interestRate);
 
             expect(prefixedCdb).toBe(result);    
+        })
+      })
+
+      it("Converts a LCI post fixed to a LCI prefixed properly", () => {
+        postFixedLciToPrefixedData.forEach(({ input, result }) => {
+            const prefixedLci = postFixedLciToPrefixed(input.postFixedLciFee, input.incomeTax);
+
+            expect(prefixedLci).toBe(result);    
         })
       })
 })

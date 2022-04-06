@@ -9,3 +9,7 @@ export function cdbToLci(cdiFee: number, incomeTax: number): number {
 export function postFixedCdbToPrefixed(postFixedFee: number, interestRate: number) {
     return postFixedFee * interestRate;
 }
+
+export function postFixedLciToPrefixed(postFixedFee: number, incomeTax: number) {
+    return postFixedFee * (1 - incomeTax)
+}
