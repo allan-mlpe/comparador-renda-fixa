@@ -4,10 +4,10 @@ export default {
   data() {
     return {
       taxes: [
-        { tax: 0.225, label: "Até 180 dias" },
-        { tax: 0.2, label: "De 181 a 360 dias" },
-        { tax: 0.175, label: "De 361 a 720 dias" },
-        { tax: 0.15, label: "Acima de 720 dias" },
+        { tax: 0.225, label: "Até 6 meses" },
+        { tax: 0.2, label: "Entre 6 meses e 1 ano" },
+        { tax: 0.175, label: "Entre 1 e 2 anos" },
+        { tax: 0.15, label: "Acima de 2 anos" },
       ],
       value: 0,
     };

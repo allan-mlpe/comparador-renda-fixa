@@ -17,6 +17,7 @@ export default {
       type="number"
       class="form-control"
       v-model="value"
+      step=".01"
       @input="$emit('changeValue', value)"
     />
     <label :for="id">{{ label }}</label>

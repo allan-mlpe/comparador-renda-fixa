@@ -11,20 +11,20 @@ export default {
 
   data() {
     return {
-      cdb: undefined,
-      lci: undefined,
-      taxIncome: undefined,
+      cdb: 0,
+      lci: 0,
+      taxIncome: 0,
     };
   },
 
   methods: {
     convertCdbToLci(val) {
       this.cdb = val;
-      this.lci = cdbToLci(val, this.taxIncome);
+      this.lci = cdbToLci(val, this.taxIncome).toFixed(2)
     },
     convertLciToCdb(val) {
       this.lci = val;
-      this.cdb = lciToCdb(val, this.taxIncome);
+      this.cdb = lciToCdb(val, this.taxIncome).toFixed(2);
     },
     recalculate(tax) {
       this.taxIncome = tax;

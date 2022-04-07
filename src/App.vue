@@ -55,7 +55,7 @@ import PostFixedInvestment from "./components/PostFixedInvestment.vue";
       </button>
     </li>
   </ul>
-  <div class="tab-content" id="myTabContent">
+  <div class="tab-content mt-3" id="myTabContent">
     <div
       class="tab-pane fade show active"
       id="prefixed"
@@ -82,9 +82,3 @@ import PostFixedInvestment from "./components/PostFixedInvestment.vue";
     </div>
   </div>
 </template>
-
-<style>
-div.tab-pane {
-  margin-top: 10pt;
-}
-</style>
