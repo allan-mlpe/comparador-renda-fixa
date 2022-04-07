@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       cdb: 0,
-      lci: 0,
+      lci: 12,
       taxIncome: 0,
     };
   },
@@ -20,7 +20,7 @@ export default {
   methods: {
     convertCdbToLci(val) {
       this.cdb = val;
-      this.lci = cdbToLci(val, this.taxIncome).toFixed(2)
+      this.lci = cdbToLci(val, this.taxIncome).toFixed(2);
     },
     convertLciToCdb(val) {
       this.lci = val;
@@ -37,11 +37,11 @@ export default {
 <template>
   <div class="row">
     <div class="col">
-      <ReactiveInput label="LCI/LCA" :value="lci" @change-value="convertLciToCdb" />
+      <ReactiveInput label="LCI/LCA (%)" :value="lci" @change-value="convertLciToCdb" />
     </div>
 
     <div class="col">
-      <ReactiveInput label="CDB" :value="cdb" @change-value="convertCdbToLci" />
+      <ReactiveInput label="CDB (%)" :value="cdb" @change-value="convertCdbToLci" />
     </div>
   </div>
   <div class="row">

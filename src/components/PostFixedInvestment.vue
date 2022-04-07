@@ -13,9 +13,9 @@ export default {
 
   data() {
     return {
-      fee: undefined,
-      incomeTax: undefined,
-      expectedCdi: undefined,
+      fee: 100,
+      incomeTax: 0,
+      expectedCdi: 12,
     };
   },
 
@@ -46,7 +46,7 @@ export default {
 
     <div class="col">
       <ReactiveInput
-        label="CDI esperado"
+        label="Taxa de juros (%)"
         :value="expectedCdi"
         @change-value="
           (val) => {
