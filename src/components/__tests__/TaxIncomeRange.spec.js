@@ -16,7 +16,7 @@ describe("TaxIncomeRange", () => {
         const input = wrapper.find('input')
 
         expect(label.text()).toBe("Prazo para resgate:")
-        expect(span.text()).toBe("Até 180 dias")
+        expect(span.text()).toBe("Até 6 meses")
         expect(input.element.value).toBe('0')
     })
 
@@ -27,7 +27,7 @@ describe("TaxIncomeRange", () => {
         input.setValue(2)
         await wrapper.vm.$nextTick()
 
-        expect(span.text()).toBe("De 361 a 720 dias")
+        expect(span.text()).toBe("Entre 1 e 2 anos")
     })
 
     it("emits the initial value when the component is created", () => {

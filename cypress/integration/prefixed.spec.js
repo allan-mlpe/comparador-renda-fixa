@@ -11,25 +11,25 @@ describe("Prefixed investments Test", () => {
 
 
     it("calculates the CBD fee when typing a LCI fee", () => {
-        cy.get('input').first().type('15.5')
+        cy.get('input').first().clear().type('15.5')
 
-        cy.get('input').eq(1).should('have.value', '20')
+        cy.get('input').eq(1).should('have.value', '20.00')
     });
 
     it("calculates the LCI fee when typing a CDB fee", () => {
-        cy.get('input').eq(1).type('100')
+        cy.get('input').eq(1).clear().type('100')
 
-        cy.get('input').first().should('have.value', '77.5')
+        cy.get('input').first().should('have.value', '77.50')
     })
 
     it("recalculates CDB when the range is updated", () => {
-        cy.get('input').first().type('10')
+        cy.get('input').first().clear().type('10')
 
         const testValues = [
-            { sliderValue: '0', expectedValue: '12.903225806451612' },
-            { sliderValue: '1', expectedValue: '12.5' },
-            { sliderValue: '2', expectedValue: '12.121212121212121' },
-            { sliderValue: '3', expectedValue: '11.764705882352942' }
+            { sliderValue: '0', expectedValue: '12.90' },
+            { sliderValue: '1', expectedValue: '12.50' },
+            { sliderValue: '2', expectedValue: '12.12' },
+            { sliderValue: '3', expectedValue: '11.76' }
         ]
 
         testValues.forEach(d => {
