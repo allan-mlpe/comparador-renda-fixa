@@ -68,8 +68,8 @@ export default {
   </div>
 
   <div class="row mt-4">
-    <Card title="CDB" subtitle="Prefixado" :text="prefixedCdb + '%'" />
+    <Card id="cdb-card" title="CDB" subtitle="Prefixado" :text="prefixedCdb + '%'" />
 
-    <Card title="LCI/LCA" subtitle="Prefixado" :text="prefixedLci + '%'" />
+    <Card id="lci-card" title="LCI/LCA" subtitle="Prefixado" :text="prefixedLci + '%'" />
   </div>
 </template>
