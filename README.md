@@ -1,4 +1,4 @@
-# comparador-renda-fixa
+# comparador-renda-fixa :moneybag:
 
 [![CI Pipeline](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/tests.yml/badge.svg)](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/tests.yml)
 [![CD Pipeline](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/deploy.yml/badge.svg)](https://github.com/allan-mlpe/comparador-renda-fixa/actions/workflows/deploy.yml)
