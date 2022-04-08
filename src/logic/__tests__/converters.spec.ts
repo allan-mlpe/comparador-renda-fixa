@@ -25,11 +25,11 @@ const postFixedCdbToPrefixedData = [
 ]
 
 const postFixedLciToPrefixedData = [
-    { input: { postFixedLciFee: 109, incomeTax: 0.175 }, result: 89.925 },
-    { input: { postFixedLciFee: 0,   incomeTax: 0.175 }, result: 0 },
-    { input: { postFixedLciFee: 115, incomeTax: 0.225 }, result: 89.125 },
-    { input: { postFixedLciFee: 100, incomeTax: 0.15 },  result: 85 },
-    { input: { postFixedLciFee: 122, incomeTax: 0 },     result: 122 }
+    { input: { postFixedLciFee: 109, incomeTax: 0.175, interestRate: 0.12 }, result: 10.790999999999999 },
+    { input: { postFixedLciFee: 0,   incomeTax: 0.175, interestRate: 0.08 }, result: 0 },
+    { input: { postFixedLciFee: 115, incomeTax: 0.225, interestRate: 0.11 }, result: 9.80375 },
+    { input: { postFixedLciFee: 100, incomeTax: 0.15, interestRate: 0.14 },  result: 11.9 },
+    { input: { postFixedLciFee: 122, incomeTax: 0, interestRate: 0.04 },     result: 4.88 }
 ]
 
 describe("Converters", () => {
@@ -59,7 +59,7 @@ describe("Converters", () => {
 
       it("Converts a LCI post fixed to a LCI prefixed properly", () => {
         postFixedLciToPrefixedData.forEach(({ input, result }) => {
-            const prefixedLci = postFixedLciToPrefixed(input.postFixedLciFee, input.incomeTax);
+            const prefixedLci = postFixedLciToPrefixed(input.postFixedLciFee, input.incomeTax, input.interestRate);
 
             expect(prefixedLci).toBe(result);    
         })

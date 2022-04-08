@@ -10,6 +10,6 @@ export function postFixedCdbToPrefixed(postFixedFee: number, interestRate: numbe
     return postFixedFee * interestRate;
 }
 
-export function postFixedLciToPrefixed(postFixedFee: number, incomeTax: number) {
-    return postFixedFee * (1 - incomeTax)
+export function postFixedLciToPrefixed(postFixedFee: number, incomeTax: number, interestRate: number) {
+    return postFixedFee * (1 - incomeTax) * interestRate
 }

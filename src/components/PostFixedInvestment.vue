@@ -24,7 +24,7 @@ export default {
       return (postFixedCdbToPrefixed(this.fee, this.expectedCdi / 100) || 0).toFixed(2);
     },
     prefixedLci() {
-      return (postFixedLciToPrefixed(this.fee, this.incomeTax) || 0).toFixed(2);
+      return (postFixedLciToPrefixed(this.fee, this.incomeTax, this.expectedCdi / 100) || 0).toFixed(2);
     },
   },
 };
