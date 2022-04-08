@@ -20,7 +20,7 @@ describe("Postfixed investments Test", () => {
         cy.get(prepareSelector(' input')).eq(1).clear().type('10')
 
         cy.contains(prepareSelector(' div#cdb-card'), '12.00%')
-        cy.contains(prepareSelector(' div#lci-card'), '93.00%')
+        cy.contains(prepareSelector(' div#lci-card'), '9.30%')
     });
 
     it("recalculates LCI when the range is updated", () => {
@@ -28,10 +28,10 @@ describe("Postfixed investments Test", () => {
         cy.get(prepareSelector(' input')).eq(1).clear().type('12')
 
         const testValues = [
-            { sliderValue: '0', expectedValue: '108.50%' },
-            { sliderValue: '1', expectedValue: '112.00%' },
-            { sliderValue: '2', expectedValue: '115.50%' },
-            { sliderValue: '3', expectedValue: '119.00%' }
+            { sliderValue: '0', expectedValue: '13.02%' },
+            { sliderValue: '1', expectedValue: '13.44%' },
+            { sliderValue: '2', expectedValue: '13.86%' },
+            { sliderValue: '3', expectedValue: '14.28%' }
         ]
 
         testValues.forEach(d => {
