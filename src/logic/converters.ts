@@ -11,5 +11,13 @@ export function postFixedCdbToPrefixed(postFixedFee: number, interestRate: numbe
 }
 
 export function postFixedLciToPrefixed(postFixedFee: number, incomeTax: number, interestRate: number) {
-    return postFixedFee * (1 - incomeTax) * interestRate
+    return cdbToLci(postFixedFee, incomeTax) * interestRate
+}
+
+export function ipcaCdbToPrefixed(cdbFee: number, inflationRate: number) {
+    return ((1 + inflationRate) * (cdbFee + 100)) - 100
+}
+
+export function ipcaLciToPrefixed(lciFee: number, incomeTax: number, inflationRate: number) {
+    return ipcaCdbToPrefixed(lciFee, inflationRate) * (1 - incomeTax)
 }
