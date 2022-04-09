@@ -2,6 +2,7 @@
 import PrefixedInvestment from "./components/PrefixedInvestment.vue";
 import SimpleCol from "./components/SimpleCol.vue";
 import PostFixedInvestment from "./components/PostFixedInvestment.vue";
+import PostFixedIpcaInvestment from "./components/PostFixedIpcaInvestment.vue";
 </script>
 
 <template>
@@ -43,12 +44,12 @@ import PostFixedInvestment from "./components/PostFixedInvestment.vue";
     <li class="nav-item" role="presentation">
       <button
         class="nav-link"
-        id="contact-tab"
+        id="postfixed-ipca-tab"
         data-bs-toggle="tab"
-        data-bs-target="#contact"
+        data-bs-target="#postfixed-ipca"
         type="button"
         role="tab"
-        aria-controls="contact"
+        aria-controls="postfixed-ipca"
         aria-selected="false"
       >
         IPCA
@@ -67,18 +68,25 @@ import PostFixedInvestment from "./components/PostFixedInvestment.vue";
       </SimpleCol>
     </div>
 
-    <div 
-      class="tab-pane fade" 
-      id="postfixed" 
-      role="tabpanel" 
+    <div
+      class="tab-pane fade"
+      id="postfixed"
+      role="tabpanel"
       aria-labelledby="postfixed-tab"
     >
       <SimpleCol>
         <PostFixedInvestment />
       </SimpleCol>
     </div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-      <SimpleCol> Em breve... </SimpleCol>
+    <div
+      class="tab-pane fade"
+      id="postfixed-ipca"
+      role="tabpanel"
+      aria-labelledby="postfixed-ipca-tab"
+    >
+      <SimpleCol>
+        <PostFixedIpcaInvestment />
+      </SimpleCol>
     </div>
   </div>
 </template>
