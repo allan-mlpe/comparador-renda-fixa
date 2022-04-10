@@ -1,8 +1,8 @@
 <script setup>
-import PrefixedInvestment from "./components/PrefixedInvestment.vue";
+import PrefixedInvestment from "./views/PrefixedInvestment.vue";
 import SimpleCol from "./components/SimpleCol.vue";
-import PostFixedInvestment from "./components/PostFixedInvestment.vue";
-import PostFixedIpcaInvestment from "./components/PostFixedIpcaInvestment.vue";
+import PostFixedInvestment from "./views/PostFixedInvestment.vue";
+import PostFixedIpcaInvestment from "./views/PostFixedIpcaInvestment.vue";
 </script>
 
 <template>

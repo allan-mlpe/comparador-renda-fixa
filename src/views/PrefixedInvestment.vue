@@ -1,6 +1,6 @@
 <script>
-import ReactiveInput from "./ReactiveInput.vue";
-import TaxIncomeRange from "./TaxIncomeRange.vue";
+import ReactiveInput from "../components/ReactiveInput.vue";
+import TaxIncomeRange from "../components/TaxIncomeRange.vue";
 import { lciToCdb, cdbToLci } from "../logic/converters.ts";
 
 export default {

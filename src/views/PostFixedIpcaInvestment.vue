@@ -1,7 +1,7 @@
 <script>
-import ReactiveInput from "./ReactiveInput.vue";
-import Card from "./Card.vue";
-import TaxIncomeRange from "./TaxIncomeRange.vue";
+import ReactiveInput from "../components/ReactiveInput.vue";
+import Card from "../components/Card.vue";
+import TaxIncomeRange from "../components/TaxIncomeRange.vue";
 import { ipcaCdbToPrefixed, ipcaLciToPrefixed } from "../logic/converters.ts";
 
 export default {
