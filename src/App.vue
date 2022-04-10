@@ -1,14 +1,13 @@
 <script setup>
 import PrefixedInvestment from "./views/PrefixedInvestment.vue";
-import SimpleCol from "./components/SimpleCol.vue";
-import AppHeader from "./components/AppHeader.vue";
-import AppFooter from "./components/AppFooter.vue";
+import TheHeader from "./components/TheHeader.vue";
+import TheFooter from "./components/TheFooter.vue";
 import PostFixedInvestment from "./views/PostFixedInvestment.vue";
 import PostFixedIpcaInvestment from "./views/PostFixedIpcaInvestment.vue";
 </script>
 
 <template>
-  <AppHeader />
+  <TheHeader />
 
   <main>
     <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
@@ -84,5 +83,5 @@ import PostFixedIpcaInvestment from "./views/PostFixedIpcaInvestment.vue";
     </div>
   </main>
 
-  <AppFooter />
+  <TheFooter />
 </template>
