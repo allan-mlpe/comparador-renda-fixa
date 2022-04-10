@@ -1,12 +1,14 @@
 <script>
 import ReactiveInput from "../components/ReactiveInput.vue";
 import TaxIncomeRange from "../components/TaxIncomeRange.vue";
+import SimpleCol from "../components/SimpleCol.vue";
 import { lciToCdb, cdbToLci } from "../logic/converters.ts";
 
 export default {
   components: {
     ReactiveInput,
     TaxIncomeRange,
+    SimpleCol,
   },
 
   data() {
@@ -35,16 +37,18 @@ export default {
 </script>
 
 <template>
-  <div class="row">
-    <div class="col">
-      <ReactiveInput label="LCI/LCA (%)" :value="lci" @change-value="convertLciToCdb" />
-    </div>
+  <SimpleCol>
+    <div class="row">
+      <div class="col">
+        <ReactiveInput label="LCI/LCA (%)" :value="lci" @change-value="convertLciToCdb" />
+      </div>
 
-    <div class="col">
-      <ReactiveInput label="CDB (%)" :value="cdb" @change-value="convertCdbToLci" />
+      <div class="col">
+        <ReactiveInput label="CDB (%)" :value="cdb" @change-value="convertCdbToLci" />
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <TaxIncomeRange @change-value="recalculate" />
-  </div>
+    <div class="row">
+      <TaxIncomeRange @change-value="recalculate" />
+    </div>
+  </SimpleCol>
 </template>

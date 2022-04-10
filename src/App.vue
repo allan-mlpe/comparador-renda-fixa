@@ -63,9 +63,7 @@ import PostFixedIpcaInvestment from "./views/PostFixedIpcaInvestment.vue";
       role="tabpanel"
       aria-labelledby="prefixed-tab"
     >
-      <SimpleCol>
-        <PrefixedInvestment />
-      </SimpleCol>
+      <PrefixedInvestment />
     </div>
 
     <div
@@ -74,9 +72,7 @@ import PostFixedIpcaInvestment from "./views/PostFixedIpcaInvestment.vue";
       role="tabpanel"
       aria-labelledby="postfixed-tab"
     >
-      <SimpleCol>
-        <PostFixedInvestment />
-      </SimpleCol>
+      <PostFixedInvestment />
     </div>
     <div
       class="tab-pane fade"
@@ -84,9 +80,7 @@ import PostFixedIpcaInvestment from "./views/PostFixedIpcaInvestment.vue";
       role="tabpanel"
       aria-labelledby="postfixed-ipca-tab"
     >
-      <SimpleCol>
-        <PostFixedIpcaInvestment />
-      </SimpleCol>
+      <PostFixedIpcaInvestment />
     </div>
   </div>
 </template>
