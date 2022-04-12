@@ -22,13 +22,14 @@ export default {
   },
 
   computed: {
+    percentageInflation() {
+      return this.expectedInflation / 100
+    },
     prefixedCdb() {
-      return (ipcaCdbToPrefixed(this.fee, this.expectedInflation / 100) || 0).toFixed(2);
+      return ipcaCdbToPrefixed(this.fee, this.percentageInflation).toFixed(2)
     },
     prefixedLci() {
-      return (
-        ipcaLciToPrefixed(this.fee, this.incomeTax, this.expectedInflation / 100) || 0
-      ).toFixed(2);
+      return ipcaLciToPrefixed(this.fee, this.incomeTax, this.percentageInflation).toFixed(2)
     },
   },
 };
@@ -36,9 +37,10 @@ export default {
 
 <template>
   <SimpleCol>
-    <div class="row">
+    <div id="postfixed-ipca-content" class="row">
       <div class="col">
         <ReactiveInput
+          fee-input
           label="Taxa (%)"
           :value="fee"
           @change-value="
@@ -51,6 +53,7 @@ export default {
 
       <div class="col">
         <ReactiveInput
+          ipca-input
           label="IPCA estimado (%)"
           :value="expectedInflation"
           @change-value="
@@ -64,6 +67,7 @@ export default {
 
     <div class="row">
       <TaxIncomeRange
+        tax-income-input
         @change-value="
           (val) => {
             this.incomeTax = val;

@@ -40,15 +40,15 @@ export default {
   <SimpleCol>
     <div class="row">
       <div class="col">
-        <ReactiveInput label="LCI/LCA (%)" :value="lci" @change-value="convertLciToCdb" />
+        <ReactiveInput lci-input label="LCI/LCA (%)" :value="lci" @change-value="convertLciToCdb" />
       </div>
 
       <div class="col">
-        <ReactiveInput label="CDB (%)" :value="cdb" @change-value="convertCdbToLci" />
+        <ReactiveInput cdb-input label="CDB (%)" :value="cdb" @change-value="convertCdbToLci" />
       </div>
     </div>
     <div class="row">
-      <TaxIncomeRange @change-value="recalculate" />
+      <TaxIncomeRange tax-income-input @change-value="recalculate" />
     </div>
   </SimpleCol>
 </template>

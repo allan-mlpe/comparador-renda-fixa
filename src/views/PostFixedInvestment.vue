@@ -27,19 +27,20 @@ export default {
   },
 
   computed: {
+    percentageCdi() {
+      return this.expectedCdi / 100
+    },
     prefixedCdb() {
-      return (postFixedCdbToPrefixed(this.fee, this.expectedCdi / 100) || 0).toFixed(2);
+      return postFixedCdbToPrefixed(this.fee, this.percentageCdi).toFixed(2)
     },
     prefixedLci() {
-      return (
-        postFixedLciToPrefixed(this.fee, this.incomeTax, this.expectedCdi / 100) || 0
-      ).toFixed(2);
+      return postFixedLciToPrefixed(this.fee, this.incomeTax, this.percentageCdi).toFixed(2)
     },
     postFixedCdb() {
-      return (lciToCdb(this.fee, this.incomeTax) || 0).toFixed(2);
+      return lciToCdb(this.fee, this.incomeTax).toFixed(2)
     },
     postFixedLci() {
-      return (cdbToLci(this.fee, this.incomeTax) || 0).toFixed(2);
+      return cdbToLci(this.fee, this.incomeTax).toFixed(2)
     },
   },
 };
@@ -47,9 +48,10 @@ export default {
 
 <template>
   <SimpleCol>
-    <div class="row">
+    <div id="postfixed-content" class="row">
       <div class="col">
         <ReactiveInput
+          fee-input
           label="% do CDI"
           :value="fee"
           @change-value="
@@ -62,6 +64,7 @@ export default {
 
       <div class="col">
         <ReactiveInput
+          interest-rate-input
           label="Taxa de juros (%)"
           :value="expectedCdi"
           @change-value="
@@ -75,6 +78,7 @@ export default {
 
     <div class="row">
       <TaxIncomeRange
+        tax-income-input
         @change-value="
           (val) => {
             this.incomeTax = val;
@@ -96,14 +100,14 @@ export default {
 
     <div class="row mt-4">
       <Card
-        id="cdb-card-2"
+        id="postfixed-cdb-card"
         title="CDB"
         :subtitle="`Equivalente a uma LCI/LCA de ${fee || 0}% do CDI`"
         :text="postFixedCdb + '%'"
       />
 
       <Card
-        id="lci-card"
+        id="postfixed-lci-card"
         title="LCI/LCA"
         :subtitle="`Equivalente a um CDB de ${fee || 0}% do CDI`"
         :text="postFixedLci + '%'"

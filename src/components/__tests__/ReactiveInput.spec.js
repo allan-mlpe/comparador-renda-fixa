@@ -14,7 +14,6 @@ describe("ReactiveInput", () => {
     const label = wrapper.find('label')
     const input = wrapper.find('input')
 
-
     expect(label.text()).toBe("input label")
     expect(input.element.value).toBe('10')
   })
