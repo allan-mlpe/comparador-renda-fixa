@@ -1,5 +1,7 @@
 {
   "baseUrl": "http://127.0.0.1:5050",
   "testFiles": "**/*.spec.js",
-  "componentFolder": "src"
+  "componentFolder": "src",
+  "video": false,
+  "screenshotOnRunFailure": false
 }
