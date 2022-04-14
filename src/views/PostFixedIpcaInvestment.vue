@@ -2,7 +2,7 @@
 import ReactiveInput from "../components/ReactiveInput.vue";
 import Card from "../components/Card.vue";
 import TaxIncomeRange from "../components/TaxIncomeRange.vue";
-import SimpleCol from "../components/SimpleCol.vue";
+import TabContent from "../components/TabContent.vue";
 import { ipcaCdbToPrefixed, ipcaLciToPrefixed } from "../logic/converters.ts";
 
 export default {
@@ -10,7 +10,7 @@ export default {
     ReactiveInput,
     Card,
     TaxIncomeRange,
-    SimpleCol,
+    TabContent,
   },
 
   data() {
@@ -23,20 +23,24 @@ export default {
 
   computed: {
     percentageInflation() {
-      return this.expectedInflation / 100
+      return this.expectedInflation / 100;
     },
     prefixedCdb() {
-      return ipcaCdbToPrefixed(this.fee, this.percentageInflation).toFixed(2)
+      return ipcaCdbToPrefixed(this.fee, this.percentageInflation).toFixed(2);
     },
     prefixedLci() {
-      return ipcaLciToPrefixed(this.fee, this.incomeTax, this.percentageInflation).toFixed(2)
+      return ipcaLciToPrefixed(
+        this.fee,
+        this.incomeTax,
+        this.percentageInflation
+      ).toFixed(2);
     },
   },
 };
 </script>
 
 <template>
-  <SimpleCol>
+  <TabContent id="postfixed-ipca">
     <div id="postfixed-ipca-content" class="row">
       <div class="col">
         <ReactiveInput
@@ -86,5 +90,5 @@ export default {
         :text="prefixedLci + '%'"
       />
     </div>
-  </SimpleCol>
+  </TabContent>
 </template>

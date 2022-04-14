@@ -1,8 +1,8 @@
 <script>
 import ReactiveInput from "../components/ReactiveInput.vue";
 import Card from "../components/Card.vue";
-import SimpleCol from "../components/SimpleCol.vue";
 import TaxIncomeRange from "../components/TaxIncomeRange.vue";
+import TabContent from "../components/TabContent.vue";
 import {
   postFixedCdbToPrefixed,
   postFixedLciToPrefixed,
@@ -15,7 +15,7 @@ export default {
     ReactiveInput,
     Card,
     TaxIncomeRange,
-    SimpleCol,
+    TabContent,
   },
 
   data() {
@@ -28,26 +28,28 @@ export default {
 
   computed: {
     percentageCdi() {
-      return this.expectedCdi / 100
+      return this.expectedCdi / 100;
     },
     prefixedCdb() {
-      return postFixedCdbToPrefixed(this.fee, this.percentageCdi).toFixed(2)
+      return postFixedCdbToPrefixed(this.fee, this.percentageCdi).toFixed(2);
     },
     prefixedLci() {
-      return postFixedLciToPrefixed(this.fee, this.incomeTax, this.percentageCdi).toFixed(2)
+      return postFixedLciToPrefixed(this.fee, this.incomeTax, this.percentageCdi).toFixed(
+        2
+      );
     },
     postFixedCdb() {
-      return lciToCdb(this.fee, this.incomeTax).toFixed(2)
+      return lciToCdb(this.fee, this.incomeTax).toFixed(2);
     },
     postFixedLci() {
-      return cdbToLci(this.fee, this.incomeTax).toFixed(2)
+      return cdbToLci(this.fee, this.incomeTax).toFixed(2);
     },
   },
 };
 </script>
 
 <template>
-  <SimpleCol>
+  <TabContent id="postfixed">
     <div id="postfixed-content" class="row">
       <div class="col">
         <ReactiveInput
@@ -113,5 +115,5 @@ export default {
         :text="postFixedLci + '%'"
       />
     </div>
-  </SimpleCol>
+  </TabContent>
 </template>
