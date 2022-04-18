@@ -3,14 +3,14 @@ import SimpleCol from "../components/SimpleCol.vue";
 
 export default {
   components: {
-      SimpleCol
+    SimpleCol,
   },
   props: {
-      id: String,
-      isActive: {
-          type: Boolean,
-          default: false
-      }
+    id: String,
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>

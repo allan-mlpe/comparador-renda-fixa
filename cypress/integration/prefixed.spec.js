@@ -1,40 +1,39 @@
 describe("Prefixed investments Test", () => {
-    beforeEach(() => {
-        cy.visit("/");
+  beforeEach(() => {
+    cy.visit("/");
 
-        cy.get('#prefixed-tab').click()
-    })
+    cy.get("#prefixed-tab").click();
+  });
 
-    it("opens Prefixed investments tab correctly", () => {
-        cy.get('div#prefixed.active').should('exist')
-    })
+  it("opens Prefixed investments tab correctly", () => {
+    cy.get("div#prefixed.active").should("exist");
+  });
 
+  it("calculates the CBD fee when typing a LCI fee", () => {
+    cy.get("input").first().clear().type("15.5");
 
-    it("calculates the CBD fee when typing a LCI fee", () => {
-        cy.get('input').first().clear().type('15.5')
+    cy.get("input").eq(1).should("have.value", "20.00");
+  });
 
-        cy.get('input').eq(1).should('have.value', '20.00')
+  it("calculates the LCI fee when typing a CDB fee", () => {
+    cy.get("input").eq(1).clear().type("100");
+
+    cy.get("input").first().should("have.value", "77.50");
+  });
+
+  it("recalculates CDB when the range is updated", () => {
+    cy.get("input").first().clear().type("10");
+
+    const testValues = [
+      { sliderValue: "0", expectedValue: "12.90" },
+      { sliderValue: "1", expectedValue: "12.50" },
+      { sliderValue: "2", expectedValue: "12.12" },
+      { sliderValue: "3", expectedValue: "11.76" },
+    ];
+
+    testValues.forEach((d) => {
+      cy.get('input[type="range"]').setSliderValue(d.sliderValue);
+      cy.get("input").eq(1).should("have.value", d.expectedValue);
     });
-
-    it("calculates the LCI fee when typing a CDB fee", () => {
-        cy.get('input').eq(1).clear().type('100')
-
-        cy.get('input').first().should('have.value', '77.50')
-    })
-
-    it("recalculates CDB when the range is updated", () => {
-        cy.get('input').first().clear().type('10')
-
-        const testValues = [
-            { sliderValue: '0', expectedValue: '12.90' },
-            { sliderValue: '1', expectedValue: '12.50' },
-            { sliderValue: '2', expectedValue: '12.12' },
-            { sliderValue: '3', expectedValue: '11.76' }
-        ]
-
-        testValues.forEach(d => {
-            cy.get('input[type="range"]').setSliderValue(d.sliderValue)
-            cy.get('input').eq(1).should('have.value', d.expectedValue)
-        })
-    })
-})
+  });
+});

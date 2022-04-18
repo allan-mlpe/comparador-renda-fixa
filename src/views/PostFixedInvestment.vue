@@ -34,9 +34,11 @@ export default {
       return postFixedCdbToPrefixed(this.fee, this.percentageCdi).toFixed(2);
     },
     prefixedLci() {
-      return postFixedLciToPrefixed(this.fee, this.incomeTax, this.percentageCdi).toFixed(
-        2
-      );
+      return postFixedLciToPrefixed(
+        this.fee,
+        this.incomeTax,
+        this.percentageCdi
+      ).toFixed(2);
     },
     postFixedCdb() {
       return lciToCdb(this.fee, this.incomeTax).toFixed(2);
@@ -90,7 +92,12 @@ export default {
     </div>
 
     <div class="row mt-4">
-      <Card id="cdb-card" title="CDB" subtitle="Prefixado" :text="prefixedCdb + '%'" />
+      <Card
+        id="cdb-card"
+        title="CDB"
+        subtitle="Prefixado"
+        :text="prefixedCdb + '%'"
+      />
 
       <Card
         id="lci-card"

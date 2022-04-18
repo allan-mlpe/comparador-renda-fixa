@@ -3,8 +3,8 @@ export default {
   props: {
     contentId: String,
     tabTitle: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     isActive: {
       type: Boolean,
