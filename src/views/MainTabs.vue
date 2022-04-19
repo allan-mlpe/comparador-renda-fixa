@@ -5,13 +5,13 @@ import PostFixedIpcaInvestment from "./PostFixedIpcaInvestment.vue";
 import TabItem from "../components/TabItem.vue";
 
 export default {
-    components: {
-        PrefixedInvestment,
-        PostFixedInvestment,
-        PostFixedIpcaInvestment,
-        TabItem
-    }
-}
+  components: {
+    PrefixedInvestment,
+    PostFixedInvestment,
+    PostFixedIpcaInvestment,
+    TabItem,
+  },
+};
 </script>
 
 <template>

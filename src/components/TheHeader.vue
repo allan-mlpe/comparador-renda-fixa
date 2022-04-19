@@ -7,7 +7,7 @@
 </template>
 
 <style scoped>
-  header nav {
-    padding: 0 10px;
-  }
+header nav {
+  padding: 0 10px;
+}
 </style>

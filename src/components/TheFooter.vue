@@ -33,7 +33,8 @@
 </template>
 
 <style scoped>
-a, a:hover {
+a,
+a:hover {
   align-items: center;
   color: #000;
   display: flex;
