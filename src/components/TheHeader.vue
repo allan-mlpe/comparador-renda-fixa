@@ -5,3 +5,9 @@
     </nav>
   </header>
 </template>
+
+<style scoped>
+  header nav {
+    padding: 0 10px;
+  }
+</style>
