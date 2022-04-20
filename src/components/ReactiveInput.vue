@@ -1,10 +1,12 @@
 <script>
+import { generateRandomId } from "../logic/utils";
+
 export default {
   props: ["label", "value"],
   emits: ["changeValue"],
   data() {
     return {
-      id: Math.random().toString(36).substr(2, 5),
+      id: generateRandomId(),
     };
   },
 };

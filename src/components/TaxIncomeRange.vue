@@ -1,8 +1,11 @@
 <script>
+import { generateRandomId } from "../logic/utils";
+
 export default {
   emits: ["changeValue"],
   data() {
     return {
+      id: generateRandomId(),
       taxes: [
         { tax: 0.225, label: "Até 6 meses" },
         { tax: 0.2, label: "Entre 6 meses e 1 ano" },
@@ -22,7 +25,7 @@ export default {
   <div>
     <label for="taxes" class="form-label">Prazo para resgate:</label>
     <input
-      id="taxes"
+      :id="id"
       type="range"
       class="form-range"
       min="0"

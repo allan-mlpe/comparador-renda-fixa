@@ -3,6 +3,7 @@ import ReactiveInput from "../components/ReactiveInput.vue";
 import Card from "../components/Card.vue";
 import TaxIncomeRange from "../components/TaxIncomeRange.vue";
 import TabContent from "../components/TabContent.vue";
+import { roundDecimalPlaces } from "../logic/utils.ts";
 import {
   postFixedCdbToPrefixed,
   postFixedLciToPrefixed,
@@ -31,20 +32,20 @@ export default {
       return this.expectedCdi / 100;
     },
     prefixedCdb() {
-      return postFixedCdbToPrefixed(this.fee, this.percentageCdi).toFixed(2);
+      return roundDecimalPlaces(
+        postFixedCdbToPrefixed(this.fee, this.percentageCdi)
+      );
     },
     prefixedLci() {
-      return postFixedLciToPrefixed(
-        this.fee,
-        this.incomeTax,
-        this.percentageCdi
-      ).toFixed(2);
+      return roundDecimalPlaces(
+        postFixedLciToPrefixed(this.fee, this.incomeTax, this.percentageCdi)
+      );
     },
     postFixedCdb() {
-      return lciToCdb(this.fee, this.incomeTax).toFixed(2);
+      return roundDecimalPlaces(lciToCdb(this.fee, this.incomeTax));
     },
     postFixedLci() {
-      return cdbToLci(this.fee, this.incomeTax).toFixed(2);
+      return roundDecimalPlaces(cdbToLci(this.fee, this.incomeTax));
     },
   },
 };

@@ -3,6 +3,7 @@ import ReactiveInput from "../components/ReactiveInput.vue";
 import Card from "../components/Card.vue";
 import TaxIncomeRange from "../components/TaxIncomeRange.vue";
 import TabContent from "../components/TabContent.vue";
+import { roundDecimalPlaces } from "../logic/utils.ts";
 import { ipcaCdbToPrefixed, ipcaLciToPrefixed } from "../logic/converters.ts";
 
 export default {
@@ -26,14 +27,14 @@ export default {
       return this.expectedInflation / 100;
     },
     prefixedCdb() {
-      return ipcaCdbToPrefixed(this.fee, this.percentageInflation).toFixed(2);
+      return roundDecimalPlaces(
+        ipcaCdbToPrefixed(this.fee, this.percentageInflation)
+      );
     },
     prefixedLci() {
-      return ipcaLciToPrefixed(
-        this.fee,
-        this.incomeTax,
-        this.percentageInflation
-      ).toFixed(2);
+      return roundDecimalPlaces(
+        ipcaLciToPrefixed(this.fee, this.incomeTax, this.percentageInflation)
+      );
     },
   },
 };

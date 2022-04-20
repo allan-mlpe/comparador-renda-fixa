@@ -2,6 +2,7 @@
 import ReactiveInput from "../components/ReactiveInput.vue";
 import TaxIncomeRange from "../components/TaxIncomeRange.vue";
 import TabContent from "../components/TabContent.vue";
+import { roundDecimalPlaces } from "../logic/utils.ts";
 import { lciToCdb, cdbToLci } from "../logic/converters.ts";
 
 export default {
@@ -22,11 +23,11 @@ export default {
   methods: {
     convertCdbToLci(val) {
       this.cdb = val;
-      this.lci = cdbToLci(val, this.taxIncome).toFixed(2);
+      this.lci = roundDecimalPlaces(cdbToLci(val, this.taxIncome));
     },
     convertLciToCdb(val) {
       this.lci = val;
-      this.cdb = lciToCdb(val, this.taxIncome).toFixed(2);
+      this.cdb = roundDecimalPlaces(lciToCdb(val, this.taxIncome));
     },
     recalculate(tax) {
       this.taxIncome = tax;
