@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <div class="col">
+  <div class="col-xs-12 col-sm-6 g-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ title }}</h5>

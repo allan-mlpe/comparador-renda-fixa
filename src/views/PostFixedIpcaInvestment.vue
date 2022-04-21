@@ -81,7 +81,7 @@ export default {
       />
     </div>
 
-    <div class="row mt-4">
+    <div class="row my-4">
       <Card
         id="cdb-card"
         title="CDB"

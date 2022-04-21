@@ -92,7 +92,7 @@ export default {
       />
     </div>
 
-    <div class="row mt-4">
+    <div class="row my-4">
       <Card
         id="cdb-card"
         title="CDB"
@@ -106,9 +106,7 @@ export default {
         subtitle="Prefixado"
         :text="prefixedLci + '%'"
       />
-    </div>
 
-    <div class="row mt-4">
       <Card
         id="postfixed-cdb-card"
         title="CDB"
