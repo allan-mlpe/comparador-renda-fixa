@@ -36,4 +36,20 @@ describe("Prefixed investments Test", () => {
       cy.get("input").eq(1).should("have.value", d.expectedValue);
     });
   });
+
+  it("recalculates LCI/LCA when the range is updated", () => {
+    cy.get("input").eq(1).clear().type("12");
+
+    const testValues = [
+      { sliderValue: "0", expectedValue: "9.30" },
+      { sliderValue: "1", expectedValue: "9.60" },
+      { sliderValue: "2", expectedValue: "9.90" },
+      { sliderValue: "3", expectedValue: "10.20" },
+    ];
+
+    testValues.forEach((d) => {
+      cy.get('input[type="range"]').setSliderValue(d.sliderValue);
+      cy.get("input").first().should("have.value", d.expectedValue);
+    });
+  });
 });

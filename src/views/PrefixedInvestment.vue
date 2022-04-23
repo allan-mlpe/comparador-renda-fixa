@@ -17,6 +17,7 @@ export default {
       cdb: 0,
       lci: 12,
       taxIncome: 0,
+      lciLastClicked: true,
     };
   },
 
@@ -31,7 +32,10 @@ export default {
     },
     recalculate(tax) {
       this.taxIncome = tax;
-      this.convertLciToCdb(this.lci);
+
+      this.lciLastClicked
+        ? this.convertLciToCdb(this.lci)
+        : this.convertCdbToLci(this.cdb);
     },
   },
 };
@@ -46,6 +50,7 @@ export default {
           label="LCI/LCA (%)"
           :value="lci"
           @change-value="convertLciToCdb"
+          @click="() => (this.lciLastClicked = true)"
         />
       </div>
 
@@ -55,6 +60,7 @@ export default {
           label="CDB (%)"
           :value="cdb"
           @change-value="convertCdbToLci"
+          @click="() => (this.lciLastClicked = false)"
         />
       </div>
     </div>
