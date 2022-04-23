@@ -30,6 +30,7 @@ describe("TabItem", () => {
     const wrapper = mount(TabItem, {
       props: {
         id: "desactive-tab",
+        tabTitle: "My tab",
       },
     });
 
@@ -41,6 +42,7 @@ describe("TabItem", () => {
       props: {
         id: "active-tab",
         isActive: true,
+        tabTitle: "My tab",
       },
     });
 
