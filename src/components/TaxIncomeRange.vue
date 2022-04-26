@@ -23,7 +23,7 @@ export default {
 
 <template>
   <div>
-    <label for="taxes" class="form-label">Prazo para resgate:</label>
+    <label :for="id" class="form-label">Prazo para resgate:</label>
     <input
       :id="id"
       type="range"
