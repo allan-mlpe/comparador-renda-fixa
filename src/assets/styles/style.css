@@ -1,0 +1,11 @@
+.bg-darkest {
+    background-color: #1e1e1e;
+}
+
+.text-orange {
+    color: rgb(255, 115, 0) !important;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}

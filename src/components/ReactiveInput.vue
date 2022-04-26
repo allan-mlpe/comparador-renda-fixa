@@ -17,7 +17,7 @@ export default {
     <input
       :id="id"
       type="number"
-      class="form-control"
+      class="form-control bg-dark text-white"
       v-model="value"
       step=".01"
       @input="$emit('changeValue', value)"

@@ -17,7 +17,7 @@ export default {
 
 <template>
   <div
-    class="tab-pane fade show"
+    class="tab-pane fade show bg-darkest my-3"
     :class="{ active: isActive }"
     role="tabpanel"
     :id="id"
