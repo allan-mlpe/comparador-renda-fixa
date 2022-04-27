@@ -17,7 +17,7 @@ export default {
 <template>
   <li class="nav-item text-white bg-dark" role="presentation">
     <button
-      class="nav-link text-white"
+      class="nav-link bg-dark text-white"
       :class="{ active: isActive }"
       :id="`${contentId}-tab`"
       data-bs-toggle="tab"
@@ -35,9 +35,8 @@ export default {
 <style scoped>
 .nav-link.active {
   border: none;
-  background-color: #1e1e1e !important;
   color: rgb(255, 115, 0) !important;
-  font-weight: bold;
+  border-bottom: 1px solid rgb(255, 115, 0) !important;
   height: 100%;
 }
 </style>
