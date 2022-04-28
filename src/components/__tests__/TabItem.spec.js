@@ -29,7 +29,7 @@ describe("TabItem", () => {
   it("renders an not active tab as default", () => {
     const wrapper = mount(TabItem, {
       props: {
-        id: "desactive-tab",
+        id: "disabled-tab",
         tabTitle: "My tab",
       },
     });

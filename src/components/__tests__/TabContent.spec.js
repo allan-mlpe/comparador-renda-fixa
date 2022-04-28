@@ -30,7 +30,7 @@ describe("TabContent", () => {
   it("renders an not active tab as default", () => {
     const wrapper = mount(TabContent, {
       props: {
-        id: "desactive-tab",
+        id: "disabled-tab",
       },
     });
 
