@@ -1,6 +1,8 @@
 <template>
   <header>
-    <nav class="navbar navbar-dark bg-dark justify-content-md-start justify-content-center">
+    <nav
+      class="navbar navbar-dark bg-dark justify-content-md-start justify-content-center"
+    >
       <a class="navbar-brand" href="#">Comparador Renda Fixa</a>
     </nav>
   </header>

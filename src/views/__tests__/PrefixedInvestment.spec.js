@@ -34,27 +34,31 @@ describe("PrefixedInvestment", () => {
     { sliderValue: "1", expectedValue: "11.60" },
     { sliderValue: "2", expectedValue: "11.96" },
     { sliderValue: "3", expectedValue: "12.32" },
-  ])
-  ("updates the LCI value when updating the tax income value, after setting a new CDB value", async ({sliderValue, expectedValue}) => {
-    taxIncomeInput.setValue(sliderValue);
-    cdbInput.setValue("14.5")
-    await wrapper.vm.$nextTick();
-  
-    expect(lciInput.element.value).toEqual(expectedValue);
-  });
+  ])(
+    "updates the LCI value when updating the tax income value, after setting a new CDB value",
+    async ({ sliderValue, expectedValue }) => {
+      taxIncomeInput.setValue(sliderValue);
+      cdbInput.setValue("14.5");
+      await wrapper.vm.$nextTick();
+
+      expect(lciInput.element.value).toEqual(expectedValue);
+    }
+  );
 
   it.each([
     { sliderValue: "0", expectedValue: "15.42" },
     { sliderValue: "1", expectedValue: "14.94" },
     { sliderValue: "2", expectedValue: "14.48" },
     { sliderValue: "3", expectedValue: "14.06" },
-  ])
-  ("updates the CDB value when updating the tax income value, after setting a new LCI value", async ({sliderValue, expectedValue}) => {
-    lciInput.setValue('11.95')
-  
-    taxIncomeInput.setValue(sliderValue);
-    await wrapper.vm.$nextTick();
+  ])(
+    "updates the CDB value when updating the tax income value, after setting a new LCI value",
+    async ({ sliderValue, expectedValue }) => {
+      lciInput.setValue("11.95");
 
-    expect(cdbInput.element.value).toEqual(expectedValue);
-  });
+      taxIncomeInput.setValue(sliderValue);
+      await wrapper.vm.$nextTick();
+
+      expect(cdbInput.element.value).toEqual(expectedValue);
+    }
+  );
 });
