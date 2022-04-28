@@ -111,14 +111,14 @@ export default {
         id="postfixed-cdb-card"
         title="CDB"
         :subtitle="`Equivalente a uma LCI/LCA de ${fee || 0}% do CDI`"
-        :text="postFixedCdb + '%'"
+        :text="postFixedCdb + '% do CDI'"
       />
 
       <Card
         id="postfixed-lci-card"
         title="LCI/LCA"
         :subtitle="`Equivalente a um CDB de ${fee || 0}% do CDI`"
-        :text="postFixedLci + '%'"
+        :text="postFixedLci + '% do CDI'"
       />
     </div>
   </TabContent>

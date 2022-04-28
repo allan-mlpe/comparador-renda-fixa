@@ -50,7 +50,7 @@ describe("PrefixedInvestment", () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.find("#postfixed-lci-card .card-text").text()).toBe(
-      "80.00%"
+      "80.00% do CDI"
     );
   });
 
@@ -59,7 +59,7 @@ describe("PrefixedInvestment", () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.find("#postfixed-cdb-card .card-text").text()).toBe(
-      "109.16%"
+      "109.16% do CDI"
     );
   });
 });
