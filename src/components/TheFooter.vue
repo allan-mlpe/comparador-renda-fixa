@@ -3,7 +3,7 @@
     <div class="container text-center">
       <span class="text-muted">
         <a href="https://github.com/allan-mlpe/comparador-renda-fixa"
-          >See on Github
+          >© 2022 allan-mlpe
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
