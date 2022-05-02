@@ -4,7 +4,12 @@ import Card from "../components/Card.vue";
 import TaxIncomeRange from "../components/TaxIncomeRange.vue";
 import TabContent from "../components/TabContent.vue";
 import { roundDecimalPlaces } from "../logic/utils.ts";
-import { ipcaCdbToPrefixed, ipcaLciToPrefixed } from "../logic/converters.ts";
+import {
+  ipcaCdbToPrefixed,
+  ipcaLciToPrefixed,
+  prefixedToIpca,
+  lciToCdb,
+} from "../logic/converters.ts";
 
 export default {
   components: {
@@ -35,6 +40,22 @@ export default {
       return roundDecimalPlaces(
         ipcaLciToPrefixed(this.fee, this.incomeTax, this.percentageInflation)
       );
+    },
+    cdbToEquivalentLci() {
+      return roundDecimalPlaces(
+        prefixedToIpca(
+          lciToCdb(this.prefixedCdb, this.incomeTax),
+          this.percentageInflation
+        )
+      );
+    },
+    lciToEquivalentCdb() {
+      return roundDecimalPlaces(
+        prefixedToIpca(this.prefixedLci, this.percentageInflation)
+      );
+    },
+    roundedFee() {
+      return roundDecimalPlaces(this.fee);
     },
   },
 };
@@ -94,6 +115,20 @@ export default {
         title="LCI/LCA"
         subtitle="Prefixado"
         :text="prefixedLci + '%'"
+      />
+
+      <Card
+        id="cdb-ipca-card"
+        title="CDB"
+        :subtitle="`Equivalente a uma LCI/LCA de IPCA + ${roundedFee}%`"
+        :text="`IPCA + ${cdbToEquivalentLci}%`"
+      />
+
+      <Card
+        id="lci-ipca-card"
+        title="LCI/LCA"
+        :subtitle="`Equivalente a um CDB de IPCA + ${roundedFee}%`"
+        :text="`IPCA + ${lciToEquivalentCdb}%`"
       />
     </div>
   </TabContent>

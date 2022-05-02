@@ -21,3 +21,7 @@ export function ipcaCdbToPrefixed(cdbFee: number, inflationRate: number) {
 export function ipcaLciToPrefixed(lciFee: number, incomeTax: number, inflationRate: number) {
     return ipcaCdbToPrefixed(lciFee, inflationRate) * (1 - incomeTax)
 }
+
+export function prefixedToIpca(prefixedFee: number, inflationRate: number) {
+    return  Math.abs(((1 + prefixedFee/100) / (1 + inflationRate)) - 1) * 100
+}

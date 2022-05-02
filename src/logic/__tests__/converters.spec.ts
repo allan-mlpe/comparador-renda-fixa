@@ -6,6 +6,7 @@ import {
   postFixedLciToPrefixed,
   ipcaCdbToPrefixed,
   ipcaLciToPrefixed,
+  prefixedToIpca,
 } from "../converters";
 
 describe("Converters", () => {
@@ -126,6 +127,23 @@ describe("Converters", () => {
       );
 
       expect(prefixedLci).toBeCloseTo(result, 2);
+    }
+  );
+
+  it.each([
+    { input: { prefixedFee: 13.09, inflationRate: 0.0667 }, result: 6.02 },
+    { input: { prefixedFee: 10.8, inflationRate: 0.0667 }, result: 3.87 },
+    { input: { prefixedFee: 0, inflationRate: 0.085 }, result: 7.83 },
+    { input: { prefixedFee: 12, inflationRate: 0 }, result: 12.0 },
+  ])(
+    "Converts a prefixed investment to an indexed to IPCA one properly",
+    ({ input, result }) => {
+      const ipcaIndexedInvestment = prefixedToIpca(
+        input.prefixedFee,
+        input.inflationRate
+      );
+
+      expect(ipcaIndexedInvestment).toBeCloseTo(result, 2);
     }
   );
 });

@@ -44,4 +44,22 @@ describe("PrefixedIpcaInvestment", () => {
 
     expect(wrapper.find("#lci-card .card-text").text()).toBe("11.97%");
   });
+
+  it("updates the CDB indexed to IPCA when typing values", async () => {
+    setInputValues("3.87", "5.99", "0");
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.find("#cdb-ipca-card .card-text").text()).toBe(
+      "IPCA + 6.63%"
+    );
+  });
+
+  it("updates the LCI/LCA indexed to IPCA when typing values", async () => {
+    setInputValues("6.02", "6.667", "2");
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.find("#lci-ipca-card .card-text").text()).toBe(
+      "IPCA + 3.87%"
+    );
+  });
 });
